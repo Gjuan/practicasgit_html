@@ -1,0 +1,100 @@
+<html>	
+<head>
+	<title>validando numeros</title>
+    <style media="screen" screen>
+
+	 form{
+     width: 25%;
+     margin:0 auto;
+
+	 }
+
+
+    </style>
+<script>
+
+	function soloNumeros(e){
+
+
+		key=e.keyCode || e.which;
+
+		teclado=String.fromCharCode(key);
+
+		numero="0123456789";
+
+		especiales="8-37-38-46";//array
+
+		teclado_especial=false;
+
+			for (var i in especiales) {
+				if (key==especiales[i]) {
+
+					teclado_especial=true;
+				}
+			}
+			if (numero.indexOf(teclado)==-1 && ! teclado_especial) {
+
+				return false;
+			}
+
+	}	
+
+	function soloLetras(e){
+
+		key=e.keyCode || e.which;
+
+		tecla=String.fromCharCode(key);
+
+		letra="abdcefghijklmnñopqrstuvwxyz";
+		especial="8-37-38-46";
+
+		teclado_letra=false;
+
+			for (var i in especial) {
+				if (key==especial[i]) {
+
+					teclado_letra=true;
+				}
+			}
+			if (letra.indexOf(tecla)==-1 && ! teclado_letra) {
+
+				return false;
+			}
+
+	}
+
+
+
+</script>
+</head>
+<body>
+		<article>
+			<form >
+				
+			<h1>Validando las caja de texto solo numero</h1>
+			<br>
+			Ingrese el Numero:
+			<br>	
+			<input type="text" name="numero" onkeypress="return soloNumeros(event)" on paste="return false"	 placeholder="numero" required>
+			<br>
+			<br>
+			Ingrese el Nombre:
+			<br>
+			<input type="text" name="nombre" onkeypress="return soloLetras(event)" on paste="return false" placeholder="letras" required>
+			<br>
+			<br>
+			Ingrese su Correo:
+			<br>
+			<label for="email"> </label>
+			<input type="email" name="email" placeholder="Example@example.com" required>
+			<br>
+			<br>
+			<input type="submit" name="Enviar">
+			</form>
+		</article>
+
+
+
+
+</body>
+</html>
